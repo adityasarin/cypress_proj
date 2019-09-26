@@ -1,0 +1,37 @@
+* Explore the https://www.ab-in-den-urlaub.de portal and come up with suggestions: how would you simplify the entire customer journey?
+
+Having gone through a documented user flow from the automation task below and doing exploratory tests of my own on the application, I found the following features nice to have and have grouped them based on user categories - 
+ 
+1. For students/budget travelers - 
+- Have a filter for combined budget, while booking hotel and flight together which would be the sum of hotel booking for the number of days and return tickets.
+- While selecting hotels, number of flight options available under budget, could be shown.
+- For students have an option of searching for hostels by having that in the filter criteria.
+
+2. Couple friendly bookings - 
+- Recommend couple friendly plans for bookings.
+- Use a filter/checkbox to prioritize this.
+- Show testimonials/ reviews for such users.
+
+
+* Speaking about https://www.ab-in-den-urlaub.de portal, what would you include in regression tests?
+
+- For regression tests, we could have a separate group in the cypress directory and use command line to execute these - "$cypress run --group develop-env"
+
+- Use modular approach for regression tests and avoid having the complete test in one test suite.
+
+- Have cross application module tests and focus on third party dependencies in a separate test suite.
+
+- Have a CI pipeline setup for regression testing and have it run in nightly builds on the deployed version of the application.
+
+
+* What kind of security, performance and load tests you would suggest for the portal? - Using the agile testing quadrant, non functional tests can be prioritized while developing the application.
+
+- Performance tests can be designed with some standard user flows in mind by separating search and booking stories and using tools like loadui, gatling or jmeter.
+
+- Have more user agents configured for search scripts and proportionally lesser user agents assigned to booking and collecting performance data parameters like resource utilization/ throughput/iops in various configurations.
+
+- For load tests, putting the system under load can be achieved by different test conditions each focusing on one or a combination of performance parameters.
+
+1. More number of get requests on the same resource can help check iops limit.
+2. More data in the database will help with resilience checking.
+3. Parallel running user actions on the same portal from the same availability zone can help check auto scaling features of cloud environment.
